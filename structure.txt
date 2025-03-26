@@ -1,0 +1,23 @@
+Dear Zindagi/
+└── Mental Health Chatbot
+    ├── raw_data/
+    │   ├── empathetic_raw_test.csv  # Empathetic Test Set
+    │   ├── empathetic_raw_train.csv  # Empathetic Test Set
+    │   ├── empathetic_raw_valid.csv  # Empathetic Test Set
+    │   └── reddit_raw_data.csv  # Reddit Mental Health Dataset
+    │
+    ├── models/
+    │   ├── tfidf_vectorizer.pkl
+    │   ├── sentiment_logreg_model.pkl
+    │   └── bert_sentiment_model/
+    │
+    ├── scripts/
+    │   ├── train_logistic_model.py
+    │   ├── train_bert_model.py
+    │   ├── sentiment_predictor.py
+    │   ├── tools.py
+    │   └── chatbot.py
+    │
+    ├── .env
+    ├── requirements.txt
+    └── README.md

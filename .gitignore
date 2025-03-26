@@ -1,0 +1,17 @@
+# Ignore environment variables
+.env
+
+# Ignore desktop.ini files
+desktop.ini
+
+# Ignore venv
+venv
+
+# Ignore __pycache__
+__pycache__
+
+# HTML files
+*.html
+
+# Models
+models/
