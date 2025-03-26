@@ -66,7 +66,7 @@ def evaluate_model(model, dataset, label_encoder, model_name, output_dir):
     return report
 
 
-if __name__ == "__main__":
+def compare_base_vs_finetuned_distilbert():
     test_path = ".\\cleaned_data\\empathetic_test_cleaned.csv"
     fine_tuned_dir = ".\\models\\empathetic\\emotion_distilbert_finetuned"
     base_model_name = "distilbert-base-uncased"
@@ -85,3 +85,7 @@ if __name__ == "__main__":
     print("\n📈 Fine-tuned DistilBERT Performance:")
     fine_model = DistilBertForSequenceClassification.from_pretrained(fine_tuned_dir)
     print(evaluate_model(fine_model, dataset, le, "finetuned_distilbert", output_dir_finetuned))
+
+
+if __name__ == "__main__":
+    compare_base_vs_finetuned_distilbert()

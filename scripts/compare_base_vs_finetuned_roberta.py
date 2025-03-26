@@ -4,8 +4,8 @@ import numpy as np
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.preprocessing import LabelEncoder
 from transformers import (
-    BertTokenizerFast,
-    BertForSequenceClassification
+    RobertaTokenizerFast,
+    RobertaForSequenceClassification
 )
 import torch
 from torch.utils.data import DataLoader, TensorDataset
@@ -66,26 +66,26 @@ def evaluate_model(model, dataset, label_encoder, model_name, output_dir):
     return report
 
 
-def compare_base_vs_finetuned_bert_main(): 
+def compare_base_vs_finetuned_roberta_main(): 
     test_path = ".\\cleaned_data\\empathetic_test_cleaned.csv"
-    fine_tuned_dir = ".\\models\\empathetic\\emotion_bert_finetuned"
-    base_model_name = "bert-base-uncased"
-    output_dir_base = ".\\evaluation\\bert_base_vs_finetuned\\base_bert"
-    output_dir_finetuned = ".\\evaluation\\bert_base_vs_finetuned\\finetuned_bert"
+    fine_tuned_dir = ".\\models\\empathetic\\emotion_roberta_finetuned"
+    base_model_name = "roberta-base-uncased"
+    output_dir_base = ".\\evaluation\\roberta_base_vs_finetuned\\base_roberta"
+    output_dir_finetuned = ".\\evaluation\\roberta_base_vs_finetuned\\finetuned_roberta"
 
-    tokenizer = BertTokenizerFast.from_pretrained(base_model_name)
+    tokenizer = RobertaTokenizerFast.from_pretrained(base_model_name)
     label_encoder = LabelEncoder()
 
     dataset, le = load_and_prepare_data(test_path, tokenizer, label_encoder)
 
     print("\n📉 Base DistilBERT Performance:")
-    base_model = BertForSequenceClassification.from_pretrained(base_model_name, num_labels=len(le.classes_))
+    base_model = RobertaForSequenceClassification.from_pretrained(base_model_name, num_labels=len(le.classes_))
     print(evaluate_model(base_model, dataset, le, "base_distilbert", output_dir_base))
 
     print("\n📈 Fine-tuned DistilBERT Performance:")
-    fine_model = BertForSequenceClassification.from_pretrained(fine_tuned_dir)
+    fine_model = RobertaForSequenceClassification.from_pretrained(fine_tuned_dir)
     print(evaluate_model(fine_model, dataset, le, "finetuned_distilbert", output_dir_finetuned))
 
 
 if __name__ == "__main__":
-    compare_base_vs_finetuned_bert_main()
+    compare_base_vs_finetuned_roberta_main()
