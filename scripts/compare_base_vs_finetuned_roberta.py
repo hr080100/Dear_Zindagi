@@ -78,13 +78,13 @@ def compare_base_vs_finetuned_roberta_main():
 
     dataset, le = load_and_prepare_data(test_path, tokenizer, label_encoder)
 
-    print("\n📉 Base DistilBERT Performance:")
+    print("\n📉 Base Roberta Performance:")
     base_model = RobertaForSequenceClassification.from_pretrained(base_model_name, num_labels=len(le.classes_))
-    print(evaluate_model(base_model, dataset, le, "base_distilbert", output_dir_base))
+    print(evaluate_model(base_model, dataset, le, "base_roberta", output_dir_base))
 
-    print("\n📈 Fine-tuned DistilBERT Performance:")
+    print("\n📈 Fine-tuned Roberta Performance:")
     fine_model = RobertaForSequenceClassification.from_pretrained(fine_tuned_dir)
-    print(evaluate_model(fine_model, dataset, le, "finetuned_distilbert", output_dir_finetuned))
+    print(evaluate_model(fine_model, dataset, le, "finetuned_roberta", output_dir_finetuned))
 
 
 if __name__ == "__main__":
