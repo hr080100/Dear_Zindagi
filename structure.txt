@@ -1,110 +1,109 @@
-Dear Zindagi/
-└── Mental Health Chatbot
-    ├── .git/
-    │   └── ...
-    │
-    ├── __pycache__/
-    │   └── ...
-    │
-    ├── cleaned_data/
-    │   ├── empathetic_test_cleaned.csv  # Empathetic cleaned test dataset
-    │   ├── empathetic_train_cleaned.csv  # Empathetic cleaned train dataset
-    │   ├── empathetic_valid_cleaned.csv  # Empathetic cleaned valid dataset
-    │   └── reddit_cleaned.csv  # Reddit mental health cleaned dataset
-    │
-    ├── evaluation/
-    │   ├── bert_base_vs_finetuned/
-    │   │   ├── base_bert/
-    │   │   │   ├── base_bert_confusion_matrix.png
-    │   │   │   └── base_bert_report.txt
-    │   │   │
-    │   │   └──finetuned bert/
-    │   │       ├── finetuned_bert_confusion_matrix.png
-    │   │       └── finetuned_bert_report.txt
-    │   │   
-    │   ├── bert_finetuned/
-    │   │   ├── classification_report.txt
-    │   │   ├── confusion_matrix.png
-    │   │   └── metrics_bar_chart.png
-    │   │
-    │   ├── distilbert_base_vs_finetuned/
-    │   │   ├── base_distilbert/
-    │   │   │   ├── base_distilbert_confusion_matrix.png
-    │   │   │   └── base_distilbert_report.txt
-    │   │   │
-    │   │   └──finetuned distilbert/
-    │   │       ├── finetuned_distilbert_confusion_matrix.png
-    │   │       └── finetuned_distilbert_report.txt
-    │   │   
-    │   ├── distilbert_finetuned/
-    │   │   ├── classification_report.txt
-    │   │   ├── confusion_matrix.png
-    │   │   └── metrics_bar_chart.png
-    │   │
-    │   ├── roberta_base_vs_finetuned/
-    │   │   ├── base_roberta/
-    │   │   │   ├── base_roberta_confusion_matrix.png
-    │   │   │   └── base_roberta_report.txt
-    │   │   │
-    │   │   └──finetuned roberta/
-    │   │       ├── finetuned_roberta_confusion_matrix.png
-    │   │       └── finetuned_roberta_report.txt
-    │   │   
-    │   └── roberta_finetuned/
-    │       ├── classification_report.txt
-    │       ├── confusion_matrix.png
-    │       └── metrics_bar_chart.png
-    │
-    │
-    ├── models/
-    │   ├── empathetic/
-    │   │   ├── emotion_bert_finetuned
-    │   │   │   └── ...
-    │   │   │
-    │   │   ├── emotion_distilbert_finetuned
-    │   │   │   └── ...
-    │   │   │
-    │   │   └── emotion_roberta_finetuned
-    │   │       └── ...
-    │   │
-    │   └── reddit/
-    │       ├── reddit_model.pkl
-    │       └── reddit_vectorizer.pkl
-    │
-    ├── raw_data/
-    │   ├── empathetic_raw_test.csv  # Empathetic test dataset
-    │   ├── empathetic_raw_train.csv  # Empathetic test dataset
-    │   ├── empathetic_raw_valid.csv  # Empathetic test dataset
-    │   └── reddit_raw_data.csv  # Reddit mental health dataset
-    │
-    ├── scripts/
-    │   ├── clean_empathetic_data.py
-    │   ├── clean_reddit_data.py
-    │   ├── compare_base_vs_finetuned_bert.py
-    │   ├── compare_base_vs_finetuned_distilbert.py
-    │   ├── compare_base_vs_finetuned.py
-    │   ├── emotion_predictor.py
-    │   ├── main.py
-    │   ├── sentiment_predictor.py
-    │   ├── test_bert_finetuned_model_and_visualisations.py
-    │   ├── test_distilbert_finetuned_model_and_visualisations.py
-    │   ├── test.py
-    │   ├── tools.py
-    │   ├── train_emotion_bert_model.py
-    │   ├── train_emotion_distilbert_model.py
-    │   ├── train_emotion_roberta_model.py
-    │   └── train_reddit_model.py
-    │
-    ├── venv/
-    │   └── ...
-    │
-    ├── .env
-    ├── .gitattributes
-    ├── .gitignore
-    ├── desktop.ini
-    ├── index.html
-    ├── LICENSE
-    ├── README.md
-    ├── requirements.txt
-    ├── sample.env
-    └── structure.txt
+Mental Health Chatbot/
+├── .git/
+│   └── ...
+│
+├── __pycache__/
+│   └── ...
+│
+├── cleaned_data/
+│   ├── empathetic_test_cleaned.csv  # Empathetic cleaned test dataset
+│   ├── empathetic_train_cleaned.csv  # Empathetic cleaned train dataset
+│   ├── empathetic_valid_cleaned.csv  # Empathetic cleaned valid dataset
+│   └── reddit_cleaned.csv  # Reddit mental health cleaned dataset
+│
+├── evaluation/
+│   ├── bert_base_vs_finetuned/
+│   │   ├── base_bert/
+│   │   │   ├── base_bert_confusion_matrix.png
+│   │   │   └── base_bert_report.txt
+│   │   │
+│   │   └──finetuned bert/
+│   │       ├── finetuned_bert_confusion_matrix.png
+│   │       └── finetuned_bert_report.txt
+│   │   
+│   ├── bert_finetuned/
+│   │   ├── classification_report.txt
+│   │   ├── confusion_matrix.png
+│   │   └── metrics_bar_chart.png
+│   │
+│   ├── distilbert_base_vs_finetuned/
+│   │   ├── base_distilbert/
+│   │   │   ├── base_distilbert_confusion_matrix.png
+│   │   │   └── base_distilbert_report.txt
+│   │   │
+│   │   └──finetuned distilbert/
+│   │       ├── finetuned_distilbert_confusion_matrix.png
+│   │       └── finetuned_distilbert_report.txt
+│   │   
+│   ├── distilbert_finetuned/
+│   │   ├── classification_report.txt
+│   │   ├── confusion_matrix.png
+│   │   └── metrics_bar_chart.png
+│   │
+│   ├── roberta_base_vs_finetuned/
+│   │   ├── base_roberta/
+│   │   │   ├── base_roberta_confusion_matrix.png
+│   │   │   └── base_roberta_report.txt
+│   │   │
+│   │   └──finetuned roberta/
+│   │       ├── finetuned_roberta_confusion_matrix.png
+│   │       └── finetuned_roberta_report.txt
+│   │   
+│   └── roberta_finetuned/
+│       ├── classification_report.txt
+│       ├── confusion_matrix.png
+│       └── metrics_bar_chart.png
+│
+│
+├── models/
+│   ├── empathetic/
+│   │   ├── emotion_bert_finetuned
+│   │   │   └── ...
+│   │   │
+│   │   ├── emotion_distilbert_finetuned
+│   │   │   └── ...
+│   │   │
+│   │   └── emotion_roberta_finetuned
+│   │       └── ...
+│   │
+│   └── reddit/
+│       ├── reddit_model.pkl
+│       └── reddit_vectorizer.pkl
+│
+├── raw_data/
+│   ├── empathetic_raw_test.csv  # Empathetic test dataset
+│   ├── empathetic_raw_train.csv  # Empathetic test dataset
+│   ├── empathetic_raw_valid.csv  # Empathetic test dataset
+│   └── reddit_raw_data.csv  # Reddit mental health dataset
+│
+├── scripts/
+│   ├── clean_empathetic_data.py
+│   ├── clean_reddit_data.py
+│   ├── compare_base_vs_finetuned_bert.py
+│   ├── compare_base_vs_finetuned_distilbert.py
+│   ├── compare_base_vs_finetuned.py
+│   ├── emotion_predictor.py
+│   ├── main.py
+│   ├── sentiment_predictor.py
+│   ├── test_bert_finetuned_model_and_visualisations.py
+│   ├── test_distilbert_finetuned_model_and_visualisations.py
+│   ├── test.py
+│   ├── tools.py
+│   ├── train_emotion_bert_model.py
+│   ├── train_emotion_distilbert_model.py
+│   ├── train_emotion_roberta_model.py
+│   └── train_reddit_model.py
+│
+├── venv/
+│   └── ...
+│
+├── .env
+├── .gitattributes
+├── .gitignore
+├── desktop.ini
+├── index.html
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── sample.env
+└── structure.txt
