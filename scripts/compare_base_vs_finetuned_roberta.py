@@ -69,7 +69,7 @@ def evaluate_model(model, dataset, label_encoder, model_name, output_dir):
 def compare_base_vs_finetuned_roberta_main(): 
     test_path = ".\\cleaned_data\\empathetic_test_cleaned.csv"
     fine_tuned_dir = ".\\models\\empathetic\\emotion_roberta_finetuned"
-    base_model_name = "roberta-base-uncased"
+    base_model_name = "roberta-base"
     output_dir_base = ".\\evaluation\\roberta_base_vs_finetuned\\base_roberta"
     output_dir_finetuned = ".\\evaluation\\roberta_base_vs_finetuned\\finetuned_roberta"
 
