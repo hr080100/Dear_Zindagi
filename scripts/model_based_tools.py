@@ -21,7 +21,9 @@ def classify_emotion(text: str) -> str:
     predicted_class = torch.argmax(probs, dim=1).item()
 
     label_map_path = os.path.join(model_path, "label_map.csv")
-    label_map = pd.read_csv(label_map_path).set_index("id")["label"].to_dict()
+    label_map = pd.read_csv(label_map_path)  # .set_index("id")["label"].to_dict()
+    label_map.columns = ["id", "label"]
+    label_map = label_map.set_index("id")["label"].to_dict()
     return label_map.get(predicted_class, "Unknown")
 
 emotion_classifier_tool = Tool(
