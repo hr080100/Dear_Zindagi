@@ -88,5 +88,5 @@ if __name__ == "__main__":
         model_name="roberta-base",
         train_path=".\\cleaned_data\\empathetic_train_cleaned.csv",
         val_path=".\\cleaned_data\\empathetic_valid_cleaned.csv",
-        output_dir=".\\models\\empathetic\\emotion_roberta_finetuned"
+        output_dir=".\\models\\empathetic\\roberta\\emotion_roberta_finetuned"
     )

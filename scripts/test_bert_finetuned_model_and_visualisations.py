@@ -92,6 +92,6 @@ def test_emotion_model(test_path, model_dir, report_dir):
 if __name__ == "__main__":
     test_emotion_model(
         test_path=".\\cleaned_data\\empathetic_test_cleaned.csv",
-        model_dir=".\\models/empathetic\\emotion_bert_finetuned",
+        model_dir=".\\models\\empathetic\\emotion_bert_finetuned",
         report_dir=".\\evaluation\\bert_finetuned"
     )

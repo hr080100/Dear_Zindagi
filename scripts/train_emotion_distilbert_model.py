@@ -86,5 +86,5 @@ if __name__ == "__main__":
         model_name="distilbert-base-uncased",
         train_path=".\\cleaned_data\\empathetic_train_cleaned.csv",
         val_path=".\\cleaned_data\\empathetic_valid_cleaned.csv",
-        output_dir=".\\models\\empathetic\\emotion_distilbert_finetuned"
+        output_dir=".\\models\\empathetic\\distilbert\\emotion_distilbert_finetuned"
     )
