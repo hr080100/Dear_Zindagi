@@ -5,7 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.agents import create_tool_calling_agent, AgentExecutor
 from langchain_core.output_parsers import PydanticOutputParser
 from pydantic import BaseModel
-from model_based_tools import (
+from scripts.model_based_tools import (
     emotion_classifier_tool,
     reddit_sentiment_tool,
     log_emotion_tool,
