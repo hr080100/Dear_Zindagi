@@ -16,7 +16,7 @@ from transformers import (
 
 def train_emotion_model(model_name: str, train_path: str, val_path: str, output_dir: str):
     # Load and encode labels
-    print("✅ Using device:", torch.cuda.get_device_name() if torch.cuda.is_available() else "CPU only")
+    print("Using device:", torch.cuda.get_device_name() if torch.cuda.is_available() else "CPU only")
     train_df = pd.read_csv(train_path)
     val_df = pd.read_csv(val_path)
 
@@ -83,7 +83,7 @@ def train_emotion_model(model_name: str, train_path: str, val_path: str, output_
     # Save model and tokenizer
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
-    print(f"✅ Saved model: {model_name} to {output_dir}")
+    print(f"Saved model: {model_name} to {output_dir}")
 
 
 def get_model_name(model: str):
@@ -140,8 +140,8 @@ def train(model: str = "distilbert"):
     else:
         print(f"No model name provided as CLI. Using default: {model}")
     model_name = get_model_name(model)
-    train_path = ".\\cleaned_data\\empathetic_train_cleaned.csv"
-    val_path = ".\\cleaned_data\\empathetic_valid_cleaned.csv"
+    train_path = ".\\cleaned_data\\empathetic\\empathetic_train_cleaned.csv"
+    val_path = ".\\cleaned_data\\empathetic\\empathetic_valid_cleaned.csv"
     output_dir = get_output_dir(model_name)
     train_emotion_model (
                             model_name = model_name,

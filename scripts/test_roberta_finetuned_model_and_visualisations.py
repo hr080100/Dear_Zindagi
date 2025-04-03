@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader, TensorDataset
 def test_emotion_model(test_path, model_dir, report_dir):
     # Select GPU if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"✅ Running on device: {device}")
+    print(f"Running on device: {device}")
 
     # Load test data
     df = pd.read_csv(test_path)
@@ -64,7 +64,7 @@ def test_emotion_model(test_path, model_dir, report_dir):
     report_text = classification_report(y_true, y_pred, digits=4)
     with open(report_path, "w") as f:
         f.write(report_text)
-    print(f"✅ Saved classification report to: {report_path}")
+    print(f"Saved classification report to: {report_path}")
 
     # Confusion matrix
     cm = confusion_matrix(y_true, y_pred, labels=le.classes_)
@@ -87,11 +87,11 @@ def test_emotion_model(test_path, model_dir, report_dir):
     plt.savefig(os.path.join(report_dir, "metrics_bar_chart.png"))
     plt.close()
 
-    print(f"✅ Visualizations saved to: {report_dir}")
+    print(f"Visualizations saved to: {report_dir}")
 
 if __name__ == "__main__":
     test_emotion_model(
-        test_path=".\\cleaned_data\\empathetic_test_cleaned.csv",
-        model_dir=".\\models/empathetic\\emotion_roberta_finetuned",
-        report_dir=".\\evaluation\\roberta_finetuned"
+        test_path=".\\cleaned_data\\empathetic\\empathetic_test_cleaned.csv",
+        model_dir=".\\models\\empathetic\\roberta\\emotion_roberta_base_finetuned",
+        report_dir=".\\evaluation\\roberta\\roberta_finetuned"
     )

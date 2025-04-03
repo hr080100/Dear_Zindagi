@@ -17,6 +17,6 @@ def clean_and_save_empathetic(input_path: str, output_path: str):
     print(f"✅ Cleaned and saved {output_path}")
 
 if __name__ == "__main__":
-    clean_and_save_empathetic(".\\raw_data\\empathetic_raw_train.csv", ".\\cleaned_data\\empathetic_train_cleaned.csv")
-    clean_and_save_empathetic(".\\raw_data\\empathetic_raw_valid.csv", ".\\cleaned_data\\empathetic_valid_cleaned.csv")
-    clean_and_save_empathetic(".\\raw_data\\empathetic_raw_test.csv", ".\\cleaned_data\\empathetic_test_cleaned.csv")
+    clean_and_save_empathetic(".\\raw_data\\empathetic\\empathetic_raw_train.csv", ".\\cleaned_data\\empathetic\\empathetic_train_cleaned.csv")
+    clean_and_save_empathetic(".\\raw_data\\empathetic\\empathetic_raw_valid.csv", ".\\cleaned_data\\empathetic\\empathetic_valid_cleaned.csv")
+    clean_and_save_empathetic(".\\raw_data\\empathetic\\empathetic_raw_test.csv", ".\\cleaned_data\\empathetic\\empathetic_test_cleaned.csv")

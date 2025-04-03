@@ -67,22 +67,22 @@ def evaluate_model(model, dataset, label_encoder, model_name, output_dir):
 
 
 def compare_base_vs_finetuned_distilbert():
-    test_path = ".\\cleaned_data\\empathetic_test_cleaned.csv"
-    fine_tuned_dir = ".\\models\\empathetic\\emotion_distilbert_finetuned"
+    test_path = ".\\cleaned_data\\empathetic\\empathetic_test_cleaned.csv"
+    fine_tuned_dir = ".\\models\\empathetic\\distilbert\\emotion_distilbert_base_uncased_finetuned"
     base_model_name = "distilbert-base-uncased"
-    output_dir_base = ".\\evaluation\\distilbert_base_vs_finetuned\\base_distilbert"
-    output_dir_finetuned = ".\\evaluation\\distilbert_base_vs_finetuned\\finetuned_distilbert"
+    output_dir_base = ".\\evaluation\\distilbert\\distilbert_base_vs_finetuned\\distilbert_base"
+    output_dir_finetuned = ".\\evaluation\\distilbert\\distilbert_base_vs_finetuned\\distilbert_finetuned"
 
     tokenizer = DistilBertTokenizerFast.from_pretrained(base_model_name)
     label_encoder = LabelEncoder()
 
     dataset, le = load_and_prepare_data(test_path, tokenizer, label_encoder)
 
-    print("\n📉 Base DistilBERT Performance:")
+    print("\nBase DistilBERT Performance:")
     base_model = DistilBertForSequenceClassification.from_pretrained(base_model_name, num_labels=len(le.classes_))
     print(evaluate_model(base_model, dataset, le, "base_distilbert", output_dir_base))
 
-    print("\n📈 Fine-tuned DistilBERT Performance:")
+    print("\nFine-tuned DistilBERT Performance:")
     fine_model = DistilBertForSequenceClassification.from_pretrained(fine_tuned_dir)
     print(evaluate_model(fine_model, dataset, le, "finetuned_distilbert", output_dir_finetuned))
 

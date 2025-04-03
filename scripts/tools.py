@@ -12,7 +12,7 @@ from chatbot_main import llm  # adjust path if needed
 
 # --- Emotion Classification ---
 def classify_emotion(text: str) -> str:
-    model_path = "models/empathetic/emotion_roberta_finetuned"
+    model_path = ".\\models\\empathetic\\roberta\\emotion_roberta_finetuned"
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForSequenceClassification.from_pretrained(model_path)
 
@@ -63,7 +63,7 @@ reddit_sentiment_tool = Tool(
 
 
 # --- Logging Tools ---
-def log_emotion_to_file(text: str, filename: str = "logs/emotion_log.txt") -> str:
+def log_emotion_to_file(text: str, filename: str = "logs\\emotion_log.txt") -> str:
     result = classify_emotion(text)
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -78,7 +78,7 @@ log_emotion_tool = Tool(
 )
 
 
-def log_reddit_label_to_file(text: str, filename: str = "logs/reddit_log.txt") -> str:
+def log_reddit_label_to_file(text: str, filename: str = "logs\\reddit_log.txt") -> str:
     result = classify_reddit_label(text)
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     os.makedirs(os.path.dirname(filename), exist_ok=True)
@@ -95,11 +95,11 @@ log_reddit_tool = Tool(
 
 # --- Model Comparison Tool ---
 def compare_transformer_models(text: str) -> str:
-    base_path = ".\\models\\empathetic"
+    base_path = ".\\models\\empathetic\\"
     model_names = [
-        ("emotion_bert_finetuned", "BERT"),
-        ("emotion_distilbert_finetuned", "DistilBERT"),
-        ("emotion_roberta_finetuned", "RoBERTa")
+        ("bert\\emotion_bert_base_uncased_finetuned", "BERT"),
+        ("distilbert\\emotion_distilbert_base_uncased_finetuned", "DistilBERT"),
+        ("roberta\\emotion_roberta_base_uncased_finetuned", "RoBERTa")
     ]
 
     results = []

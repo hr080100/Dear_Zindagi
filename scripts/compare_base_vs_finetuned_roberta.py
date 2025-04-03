@@ -67,22 +67,22 @@ def evaluate_model(model, dataset, label_encoder, model_name, output_dir):
 
 
 def compare_base_vs_finetuned_roberta_main(): 
-    test_path = ".\\cleaned_data\\empathetic_test_cleaned.csv"
-    fine_tuned_dir = ".\\models\\empathetic\\emotion_roberta_finetuned"
+    test_path = ".\\cleaned_data\\empathetic\\empathetic_test_cleaned.csv"
+    fine_tuned_dir = ".\\models\\empathetic\\roberta\\emotion_roberta_base_finetuned"
     base_model_name = "roberta-base"
-    output_dir_base = ".\\evaluation\\roberta_base_vs_finetuned\\base_roberta"
-    output_dir_finetuned = ".\\evaluation\\roberta_base_vs_finetuned\\finetuned_roberta"
+    output_dir_base = ".\\evaluation\\roberta\\roberta_base_vs_finetuned\\roberta_base"
+    output_dir_finetuned = ".\\evaluation\\roberta\\roberta_base_vs_finetuned\\roberta_finetuned"
 
     tokenizer = RobertaTokenizerFast.from_pretrained(base_model_name)
     label_encoder = LabelEncoder()
 
     dataset, le = load_and_prepare_data(test_path, tokenizer, label_encoder)
 
-    print("\n📉 Base Roberta Performance:")
+    print("\nBase Roberta Performance:")
     base_model = RobertaForSequenceClassification.from_pretrained(base_model_name, num_labels=len(le.classes_))
     print(evaluate_model(base_model, dataset, le, "base_roberta", output_dir_base))
 
-    print("\n📈 Fine-tuned Roberta Performance:")
+    print("\nFine-tuned Roberta Performance:")
     fine_model = RobertaForSequenceClassification.from_pretrained(fine_tuned_dir)
     print(evaluate_model(fine_model, dataset, le, "finetuned_roberta", output_dir_finetuned))
 

@@ -67,22 +67,22 @@ def evaluate_model(model, dataset, label_encoder, model_name, output_dir):
 
 
 def compare_base_vs_finetuned_bert_main(): 
-    test_path = ".\\cleaned_data\\empathetic_test_cleaned.csv"
-    fine_tuned_dir = ".\\models\\empathetic\\emotion_bert_finetuned"
+    test_path = ".\\cleaned_data\\empathetic\\empathetic_test_cleaned.csv"
+    fine_tuned_dir = ".\\models\\empathetic\\bert\\emotion_bert_base_uncased_finetuned"
     base_model_name = "bert-base-uncased"
-    output_dir_base = ".\\evaluation\\bert_base_vs_finetuned\\base_bert"
-    output_dir_finetuned = ".\\evaluation\\bert_base_vs_finetuned\\finetuned_bert"
+    output_dir_base = ".\\evaluation\\bert\\bert_base_vs_finetuned\\bert_base"
+    output_dir_finetuned = ".\\evaluation\\bert\\bert_base_vs_finetuned\\bert_finetuned"
 
     tokenizer = BertTokenizerFast.from_pretrained(base_model_name)
     label_encoder = LabelEncoder()
 
     dataset, le = load_and_prepare_data(test_path, tokenizer, label_encoder)
 
-    print("\n📉 Base Bert Performance:")
+    print("\nBase Bert Performance:")
     base_model = BertForSequenceClassification.from_pretrained(base_model_name, num_labels=len(le.classes_))
     print(evaluate_model(base_model, dataset, le, "base_bert", output_dir_base))
 
-    print("\n📈 Fine-tuned Bert Performance:")
+    print("\nFine-tuned Bert Performance:")
     fine_model = BertForSequenceClassification.from_pretrained(fine_tuned_dir)
     print(evaluate_model(fine_model, dataset, le, "finetuned_bert", output_dir_finetuned))
 

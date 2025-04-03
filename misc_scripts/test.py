@@ -57,7 +57,7 @@
 model_name = "google/electra-base-discriminator"
 # model_name = "bert-base-uncased"
 # model_name = "facebook/bart-large"
-# model_name = "roberta-base"
+model_name = "roberta-base"
 output_dir_model_name = model_name.replace("/", "-").split('-')
 if len(output_dir_model_name) > 3:
     output_dir_model_name_1 = "_".join(output_dir_model_name[:2])
