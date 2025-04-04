@@ -5,16 +5,19 @@ from datetime import datetime
 import joblib
 import os
 import pandas as pd
+from langchain_google_genai import ChatGoogleGenerativeAI
 
-# You must ensure this is imported correctly
-from chatbot_main import llm  # adjust path if needed
+llm = ChatGoogleGenerativeAI(
+    model="models/gemini-1.5-pro-latest",
+    google_api_key=os.getenv("GEMINI_API_KEY")
+)
 
 
 # --- Emotion Classification ---
 def classify_emotion(text: str) -> str:
-    model_path = ".\\models\\empathetic\\roberta\\emotion_roberta_finetuned"
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-    model = AutoModelForSequenceClassification.from_pretrained(model_path)
+    model_path = ".\\models\\empathetic\\roberta\\emotion_roberta_base_finetuned"
+    tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+    model = AutoModelForSequenceClassification.from_pretrained(model_path, local_files_only=True)
 
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
     with torch.no_grad():
@@ -23,7 +26,7 @@ def classify_emotion(text: str) -> str:
     predicted_class = torch.argmax(probs, dim=1).item()
 
     label_map_path = os.path.join(model_path, "label_map.csv")
-    label_map = pd.read_csv(label_map_path).set_index("id")["label"].to_dict()
+    label_map = pd.read_csv(label_map_path).set_index("index")["0"].to_dict()
 
     return label_map.get(predicted_class, "Unknown")
 
