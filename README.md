@@ -89,6 +89,10 @@ pip install -r requirements.txt
 ```
 
 ### Set Your API Key (Gemini)
+One of the following methods can be utilised.
+Method 1: Create a .env file and store all the API Keys there.
+
+Method 2:
 ```bash
 export GEMINI_API_KEY="your-key-here"  # Linux/macOS
 set GEMINI_API_KEY="your-key-here"     # Windows
