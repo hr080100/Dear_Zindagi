@@ -120,7 +120,7 @@ The chatbot will run locally at: [http://localhost:7860](http://localhost:7860)
 
 ## 🎉 Credits
 - **University of Michigan - Master of Applied Data Science (MADS)** Capstone Project
-- Built by: [Your Name]
+- Built by: Haider Rizvi
 - Dataset sources: Hugging Face, Kaggle, r/MentalHealth
 - AI model: Google Gemini via LangChain
 
